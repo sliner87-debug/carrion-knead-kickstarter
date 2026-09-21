@@ -403,3 +403,59 @@ audio::-webkit-media-controls-timeline,
 audio::-webkit-media-controls-volume-slider {
     filter: invert(1);
 }
+#sticky-audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1a1a1a;
+    border: 2px solid #55aa55;
+    border-radius: 50px;
+    padding: 5px 15px 5px 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    font-family: 'Lora', serif;
+    color: #f4d9a6;
+    max-width: 250px;
+}
+
+#global-play-btn {
+    background: #55aa55;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: background 0.2s;
+    margin: 0;
+    padding: 0;
+}
+
+#global-play-btn:hover {
+    background: #448844;
+}
+
+.scrolling-text-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+}
+
+#now-playing-text {
+    display: inline-block;
+    font-size: 0.9rem;
+    animation: scroll-text 10s linear infinite;
+}
+
+@keyframes scroll-text {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
