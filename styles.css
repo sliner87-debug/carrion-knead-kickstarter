@@ -293,3 +293,43 @@ h1, h2, h3, h4, .logo, .ks-nav a, .back-project-btn {
     font-weight: bold;
     cursor: pointer;
 }
+.vtt-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.token-gallery {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.vtt-item {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.vtt-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #333;
+    transition: transform 0.3s ease;
+}
+
+.vtt-item:hover img {
+    transform: scale(1.05);
+}
+
+.vtt-caption {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #f4d9a6;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+}
