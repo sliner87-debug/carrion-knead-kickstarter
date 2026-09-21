@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Carrion Knead - Pitch Trailer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Cinzel', serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #trailer-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 1280px;
+            max-height: 720px;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            border: 1px solid #222;
+        }
+
+        .scene {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .scene.active {
+            opacity: 1;
+        }
+        
+        .scene.ken-burns {
+            animation: kenBurns 10s linear forwards;
+        }
+
+        @keyframes kenBurns {
+            0% { transform: scale(1.0) translate(0, 0); }
+            100% { transform: scale(1.15) translate(-2%, -2%); }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+
+        .text-layer {
+            position: absolute;
+            z-index: 20;
+            text-align: center;
+            width: 80%;
+            text-shadow: 2px 2px 10px #000;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .scene.active .text-layer {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 { font-size: 3rem; color: #ff3333; margin-bottom: 10px; }
+        p { font-size: 1.8rem; font-family: 'Lora', serif; color: #e0e0e0; white-space: pre-line;}
+        
+        #start-screen {
+            position: absolute;
+            z-index: 100;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        button {
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            font-family: 'Cinzel', serif;
+            background: #ff3333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        button:hover { background: #cc0000; }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            z-index: 200;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-family: 'Lora', serif;
+            border: 1px solid white;
+            padding: 5px 15px;
+            border-radius: 3px;
+        }
+        .close-btn:hover { background: white; color: black; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="close-btn">Exit Trailer</a>
+
+    <div id="trailer-container">
+        
+        <div id="start-screen">
+            <h1>The Carrion Knead</h1>
+            <p>Kickstarter Pitch Trailer</p>
+            <button onclick="startTrailer()">Play Video</button>
+        </div>
+
+        <div id="scenes"></div>
+
+    </div>
+
+    <script>
+        const scriptData = [
+            {
+                time: 0,
+                duration: 5000,
+                image: 'assets/vtt_bleak_hollow_town_square_map.jpg',
+                title: '',
+                text: '"In the shadow of the Crimson Cathedral,\nthe hunger never sleeps..."'
+            },
+            {
+                time: 5000,
+                duration: 6000,
+                image: 'assets/vtt_token_granny_marrow.jpg',
+                title: '',
+                text: '"Oh, don\'t be shy, my sweetlings...\ncome in by the fire.\nThere\'s plenty of marrow for everyone."\n- Mother Gristle'
+            },
+            {
+                time: 11000,
+                duration: 4000,
+                image: 'assets/vtt_bone_meal_cistern_map.jpg',
+                title: 'Welcome to The Carrion Knead',
+                text: 'A massive, 300-page grimdark gastromancy campaign\nthat will test your party\'s stomach... and their souls.'
+            },
+            {
+                time: 15000,
+                duration: 6000,
+                image: 'assets/vtt_token_baron_cassian_vael.jpg',
+                title: '',
+                text: '"The feast is prepared. The only question is...\nare you the diner, or the dish?"\n- High Inquisitor Vael'
+            },
+            {
+                time: 21000,
+                duration: 4000,
+                image: 'assets/vtt_crimson_cathedral_battlemap.jpg',
+                title: 'HARVEST. BAKE. SURVIVE.',
+                text: 'Hunt eldritch ingredients and bake forbidden magic!\nFace colossal horrors across four tiers of play.'
+            },
+            {
+                time: 25000,
+                duration: 5000,
+                image: 'assets/vtt_spore_engine_map.jpg',
+                title: 'The Butcher\'s Box',
+                text: 'Secure the ultimate Collector\'s Edition.\nPhysical Tarot cards, custom bone dice, and the real-world DM Cookbook!'
+            },
+            {
+                time: 30000,
+                duration: 4000,
+                image: 'assets/vtt_gut_of_reality_map.jpg',
+                title: 'Premium VTT Integration',
+                text: 'Over 60 premium VTT battlemaps and tokens included in every tier!'
+            },
+            {
+                time: 34000,
+                duration: 4000,
+                image: 'assets/vtt_token_dread_golem.jpg',
+                title: '',
+                text: 'Will you survive the Sweetmeat Maw?'
+            },
+            {
+                time: 38000,
+                duration: 5000,
+                image: '',
+                title: 'THE CARRION KNEAD',
+                text: 'Kickstarter Exclusive.\nBack it today.'
+            }
+        ];
+
+        const scenesContainer = document.getElementById('scenes');
+
+        function buildScenes() {
+            scriptData.forEach((scene, index) => {
+                const sceneDiv = document.createElement('div');
+                sceneDiv.className = 'scene';
+                sceneDiv.id = 'scene-' + index;
+                if (scene.image) {
+                    sceneDiv.style.backgroundImage = 'url("' + scene.image + '")';
+                    sceneDiv.classList.add('ken-burns');
+                }
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay';
+                
+                const textLayer = document.createElement('div');
+                textLayer.className = 'text-layer';
+                
+                if (scene.title) {
+                    const h1 = document.createElement('h1');
+                    h1.innerText = scene.title;
+                    textLayer.appendChild(h1);
+                }
+                if (scene.text) {
+                    const p = document.createElement('p');
+                    p.innerText = scene.text;
+                    textLayer.appendChild(p);
+                }
+                
+                sceneDiv.appendChild(overlay);
+                sceneDiv.appendChild(textLayer);
+                scenesContainer.appendChild(sceneDiv);
+            });
+        }
+
+        function startTrailer() {
+            document.getElementById('start-screen').style.display = 'none';
+            buildScenes();
+            
+            scriptData.forEach((scene, index) => {
+                setTimeout(() => {
+                    // Hide all other scenes
+                    document.querySelectorAll('.scene').forEach(el => el.classList.remove('active'));
+                    // Show current scene
+                    const currentScene = document.getElementById('scene-' + index);
+                    if (currentScene) currentScene.classList.add('active');
+                }, scene.time);
+            });
+        }
+    </script>
+</body>
+</html>
