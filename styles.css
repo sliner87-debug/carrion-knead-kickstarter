@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --ks-green: #05ce78;
     --ks-green-hover: #03a860;
     --text-main: #282828;
@@ -87,7 +87,7 @@ h1, h2, h3, h4, .logo, .ks-nav a, .back-project-btn {
 }
 
 .video-placeholder {
-    background-image: url('assets/portrait_mother_gristle.jpg');
+    background-image: url('assets/hero_banner_gristle.jpg');
     background-size: cover;
     background-position: center 20%;
     aspect-ratio: 16/9;
