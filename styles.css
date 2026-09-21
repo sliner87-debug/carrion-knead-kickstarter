@@ -333,3 +333,36 @@ h1, h2, h3, h4, .logo, .ks-nav a, .back-project-btn {
     margin: 0;
     font-family: 'Cinzel', serif;
 }
+.sg-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+.sg-unlocked {
+    background: #1c331c;
+    color: #8cff8c;
+    border: 2px solid #336633;
+    box-shadow: 0 0 15px rgba(51, 102, 51, 0.4);
+}
+.sg-locked {
+    background: #111;
+    color: #666;
+    border: 2px solid #333;
+}
+.stretch-goal.unlocked {
+    background: rgba(28, 51, 28, 0.3);
+    border-color: #336633;
+}
+.stretch-goal.locked {
+    background: rgba(17, 17, 17, 0.5);
+    border-color: #333;
+    opacity: 0.8;
+}
