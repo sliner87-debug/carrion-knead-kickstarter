@@ -1,0 +1,295 @@
+﻿:root {
+    --ks-green: #05ce78;
+    --ks-green-hover: #03a860;
+    --text-main: #282828;
+    --text-muted: #656969;
+    --bg-light: #fbfbfa;
+    --border-color: #dcdedd;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lora', serif;
+    color: var(--text-main);
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, .logo, .ks-nav a, .back-project-btn {
+    font-family: 'Cinzel', serif;
+}
+
+/* Header */
+.ks-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ks-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ks-green);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    margin-left: 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Project Hero */
+.project-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.project-subtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.video-placeholder {
+    background-image: url('assets/portrait_mother_gristle.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    aspect-ratio: 16/9;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.stat-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #e6e6e6;
+    margin-bottom: 1rem;
+}
+
+.stat-bar-fill {
+    width: 100%;
+    height: 100%;
+    background: var(--ks-green);
+}
+
+.funding-stats h2 {
+    font-size: 2rem;
+    margin-bottom: -0.2rem;
+}
+
+.funding-stats p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.back-project-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--ks-green);
+    color: white;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background 0.2s;
+}
+
+.back-project-btn:hover {
+    background: var(--ks-green-hover);
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-between;
+}
+.project-links a {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    width: 48%;
+    text-align: center;
+}
+
+/* Campaign Body */
+.campaign-nav {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.campaign-nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.campaign-nav a.active {
+    color: black;
+    border-bottom: 3px solid black;
+    padding-bottom: 1rem;
+}
+
+.campaign-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid var(--ks-green);
+    padding-left: 1rem;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+}
+
+.campaign-image {
+    width: 100%;
+    margin: 2rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 3rem 0;
+}
+
+.feature-list {
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+}
+.feature-list li {
+    margin-bottom: 1rem;
+}
+
+/* Tiers and Goals */
+.tier-card, .stretch-goal {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.premium-tier {
+    border: 2px solid var(--ks-green);
+    background: var(--bg-light);
+}
+
+.tier-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.sg-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.stretch-goal.locked {
+    opacity: 0.6;
+    background: #f5f5f5;
+}
+
+/* Sidebar */
+.creator-card, .support-card {
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.creator-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.support-card input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.small-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--ks-green);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
